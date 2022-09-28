@@ -22,6 +22,22 @@ let state = () => {
     },
     displayElement: false,
     num: 0,
+    list1: ["koushil", "mankali"],
+    list2: [
+      { first: "koushil", last: "mankali" },
+      { first: "Nani", last: "Dinesh" },
+    ],
+    list3: [
+      {
+        name: "koushil",
+        det: { job: "Software Developer", cmpy: "ITalentDigital" },
+      },
+      { name: "nani", det: { job: "Software Developer", cmpy: "XYZ cmpy" } },
+    ],
+    list4: {
+      first: "koushil",
+      last: "Mankali",
+    },
   };
 };
 export default {
@@ -57,6 +73,22 @@ export default {
     <div v-if="num > 1">The number is greater than 1</div>
     <div v-else-if="num < -1">The number is lessthan than -1</div>
     <div v-else>The number is 0</div>
+    <template v-for="item in list1" :key="item">
+      <h1>{{ item }}</h1>
+    </template>
+    <div v-for="item in list2" :key="item.first">
+      <span>{{ item.first }}</span>
+      <span>&nbsp;</span>
+      <span>{{ item.last }}</span>
+    </div>
+    <hr />
+    <div v-for="(item, index) in list3" :key="index">
+      <div>Name: {{ item.name }}</div>
+      <div>Job: {{ item.det.job }}</div>
+      <div>Company: {{ item.det.cmpy }}</div>
+      <hr />
+    </div>
+    <div v-for="(list, id) in list4" :key="id">{{ id }}: {{ list }}</div>
   </div>
 </template>
 
