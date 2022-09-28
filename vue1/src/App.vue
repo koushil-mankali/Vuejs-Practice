@@ -40,14 +40,26 @@ let state = () => {
     },
   };
 };
+let add = (a: number, b: number): number => {
+  return a + b;
+};
+let mul = (a: number, b: number): number => {
+  return a * b;
+};
 export default {
   data: state,
+  methods: {
+    add,
+    mul,
+  },
 };
 </script>
 
 <template>
   <div>
     <div>{{ greet }} {{ subject }}</div>
+    <div>Add: {{ add(10, 10) }}</div>
+    <div>Mul: {{ mul(10, 10) }}</div>
     <div v-text="test"></div>
     <button v-bind:disabled="isDisabled">Disabled Button</button>
     <div v-html="html" v-bind:id="buttonId" v-bind:class="classes"></div>
@@ -89,6 +101,15 @@ export default {
       <hr />
     </div>
     <div v-for="(list, id) in list4" :key="id">{{ id }}: {{ list }}</div>
+    <hr />
+    <template v-for="(item, index) in list3">
+      <div v-if="item.name === 'koushil'" :key="index">
+        <div>Name: {{ item.name }} show</div>
+        <div>Job: {{ item.det.job }}</div>
+        <div>Company: {{ item.det.cmpy }}</div>
+        <hr />
+      </div>
+    </template>
   </div>
 </template>
 
