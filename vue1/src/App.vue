@@ -36,7 +36,7 @@ export default {
         about: "",
         graduate: false,
         education: [],
-        exp: "",
+        exp: '',
       },
     };
   },
@@ -62,6 +62,8 @@ export default {
 <template>
   <div>
     <div>
+      <div v-once>This is Once only rendered</div>
+      <div v-pre>{{count}}</div>
       <div class="m1">Welcome to Vue!</div>
       <div class="m1 crimson">Count {{ count }}</div>
       <button class="button" @:click="inc($event)">Inc</button>
@@ -71,11 +73,11 @@ export default {
     <form @submit="submitForm" class="form">
       <div>
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" v-model="formValues.name" />
+        <input type="text" name="name" id="name" v-model.lazy.trim="formValues.name" />
       </div>
       <div>
         <label for="about">About</label>
-        <textarea name="about" id="about" v-model="formValues.about" />
+        <textarea name="about" id="about" v-model.lazy.trim="formValues.about" />
       </div>
       <div>
         <label for="graduate">Graducate</label>
