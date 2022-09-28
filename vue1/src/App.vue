@@ -1,6 +1,6 @@
 <script lang="ts">
 let state = () => {
-  let btnTxt = "Click Me";
+  let btnTxt: string = "Click Me";
   return {
     greet: "Hell",
     subject: "World!",
@@ -20,6 +20,8 @@ let state = () => {
       "font-weight": "bold",
       "font-style": "italic",
     },
+    displayElement: false,
+    num: 0,
   };
 };
 export default {
@@ -49,6 +51,12 @@ export default {
       H2 CSS Test with Style
     </h2>
     <h2 v-bind:style="[style1, 'color: hotpink']">H2 CSS Test with Style 2</h2>
+    <div v-show="displayElement" v-bind:style="[style1, 'color: yellow']">
+      Show Me Or Hide Me
+    </div>
+    <div v-if="num > 1">The number is greater than 1</div>
+    <div v-else-if="num < -1">The number is lessthan than -1</div>
+    <div v-else>The number is 0</div>
   </div>
 </template>
 
