@@ -1,6 +1,10 @@
 <script lang="ts">
+  import Comp1 from './Comp1.vue';
 export default {
   name: "Home",
+  components:{
+    Comp1,
+  },
   props: {
     name: String,
     num: {
@@ -17,14 +21,21 @@ export default {
   data() {
     return {
       txt: "Home Component",
+      propedValue: "Proped Vlaue",
     };
   },
   inheritAttrs: false,
-};
+  provide(this: {propedValue: String}) {
+    return{
+      propedValue: this.propedValue,
+    }
+  }
+}; 
 </script>
 
 <template>
   <div>
+    <Comp1 />
     <h1 :="$attrs">{{ txt }} - {{name}} - num: {{num}} - isMainPage {{isMainPage ? "Yes" : "No"}}</h1>
   </div>
 </template>
