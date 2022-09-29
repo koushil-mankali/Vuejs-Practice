@@ -1,6 +1,9 @@
 <script lang="ts">
 export default {
   name: "Home",
+  props: {
+    name: String,
+  },
   data() {
     return {
       txt: "Home Component",
@@ -10,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <h1>{{ txt }}</h1>
+  <h1>{{ txt }} - {{name}}</h1>
 </template>
 
 <style scoped></style>

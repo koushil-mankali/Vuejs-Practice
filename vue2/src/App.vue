@@ -4,15 +4,23 @@
   export default {
     components: {
       Home,
+    },
+    data(){
+      return {
+        nameOne: "One",
+        nameTwo: "Two",
+      }
     }
   }
 </script>
 
 <template>
-  <Home />
+  <Home :name="nameOne" />
+  <Home :name="nameTwo" />
+  <Home name="Three" />
 </template>
 
-<style>
+<style> 
   body{
     height: 100vh;
     background-color: #42B883;
