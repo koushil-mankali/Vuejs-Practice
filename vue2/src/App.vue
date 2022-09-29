@@ -15,9 +15,9 @@
 </script>
 
 <template>
-  <Home :name="nameOne" />
-  <Home :name="nameTwo" />
-  <Home name="Three" />
+  <Home :name="nameOne" :num="444" :isMainPage="true" />
+  <Home :name="nameTwo" :num="444" :isMainPage="true" />
+  <Home id="home" name="Three" :num="444" :isMainPage="true" />
 </template>
 
 <style> 
