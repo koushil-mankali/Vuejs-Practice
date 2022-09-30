@@ -10,7 +10,7 @@
         nameOne: "One",
         nameTwo: "Two",
       }
-    }
+    },
   }
 </script>
 

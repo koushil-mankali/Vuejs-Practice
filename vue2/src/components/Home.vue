@@ -18,7 +18,7 @@ export default {
       required: true,
     }
   },
-  data() {
+  data() {  
     return {
       txt: "Home Component",
       propedValue: "Proped Vlaue",
