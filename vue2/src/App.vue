@@ -1,31 +1,47 @@
 <script lang="ts">
-  import Home from './components/Home.vue'
+  import Slot from './components/Slot.vue';
 
-  export default {
-    components: {
-      Home,
-    },
-    data(){
-      return {
-        nameOne: "One",
-        nameTwo: "Two",
-      }
-    },
+  export default{
+    components:{
+      Slot,
+    }
   }
 </script>
 
 <template>
-  <Home :name="nameOne" :num="444" :isMainPage="true" />
-  <Home :name="nameTwo" :num="444" :isMainPage="true" />
-  <Home id="home" name="Three" :num="444" :isMainPage="true" />
+    <h1>Hello vue!</h1>
+    <Slot #txtSlot>Hello from slot</Slot>
+    <Slot #bdy>
+      <div class="card">
+          This is Card!
+      </div>
+    </Slot>
+    <Slot #crds="slotProps">
+      <div class="card">
+          {{slotProps.item}}
+      </div>
+    </Slot>
 </template>
 
-<style> 
+<style>
   body{
     height: 100vh;
     background-color: #42B883;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .card{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 1px #eee;
+    margin: 1rem;
   }
 </style>
