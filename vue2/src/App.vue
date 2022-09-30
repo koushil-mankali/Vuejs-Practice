@@ -2,6 +2,7 @@
 import TabA from "./components/TabA.vue";
 import TabB from "./components/TabB.vue";
 import TabC from "./components/TabC.vue";
+import Portal from './components/Portal.vue';
 
 export default {
   name: "App",
@@ -14,6 +15,7 @@ export default {
     TabA,
     TabB,
     TabC,
+    Portal,
   },
 };
 </script>
@@ -27,6 +29,10 @@ export default {
   <keep-alive>
     <component :is="activeTab" />
   </keep-alive>
+
+  <teleport to="#modal">
+    <Portal />
+  </teleport>
 </template>
 
 <style>
